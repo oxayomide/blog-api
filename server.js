@@ -1,10 +1,20 @@
-const app = require('express')
-const port = 8080
+const express = require('express');
+const connectDB = require('./config/db');
+const articleRoutes = require('./src/routes/articleRoutes');
 
-app.get('/', (res, req)=>{
-    res.send('Hellor world')
-})
+const app = express();
 
-app.listen(port, ()=>{
-    console.log(`Server running on ${port}`)
-})
+// Connect to MongoDB
+connectDB();
+
+// Middleware
+app.use(express.json());
+
+// Routes
+app.use('/api', articleRoutes);
+
+// Start server
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

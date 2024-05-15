@@ -3,7 +3,7 @@ const Article = require('../models/Article');
 // Controller functions
 const getArticles = async (req, res) => {
   try {
-    // Implement logic to fetch articles from database
+    // To fetch all articles from database
     const articles = await Article.find();
     res.json(articles);
   } catch (error) {
@@ -14,7 +14,7 @@ const getArticles = async (req, res) => {
 const getArticleById = async (req, res) => {
   const { id } = req.params;
   try {
-    // Implement logic to fetch article by ID from database
+    // To fetch an article by ID from database
     const article = await Article.findById(id);
     if (!article) {
       return res.status(404).json({ message: 'Article not found' });
@@ -28,7 +28,7 @@ const getArticleById = async (req, res) => {
 const createArticle = async (req, res) => {
   const { title, content, tags } = req.body;
   try {
-    // Implement logic to create a new article
+    // To create a new article
     const article = new Article({ title, content, tags });
     await article.save();
     res.status(201).json(article);
@@ -41,7 +41,7 @@ const updateArticle = async (req, res) => {
   const { id } = req.params;
   const { title, content, tags } = req.body;
   try {
-    // Implement logic to update an existing article
+    // To update an existing article
     const article = await Article.findByIdAndUpdate(id, { title, content, tags }, { new: true });
     if (!article) {
       return res.status(404).json({ message: 'Article not found' });
@@ -55,7 +55,7 @@ const updateArticle = async (req, res) => {
 const deleteArticle = async (req, res) => {
   const { id } = req.params;
   try {
-    // Implement logic to delete an article
+    // To delete an article
     const article = await Article.findByIdAndDelete(id);
     if (!article) {
       return res.status(404).json({ message: 'Article not found' });
