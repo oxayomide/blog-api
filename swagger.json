@@ -7,7 +7,7 @@
     },
     "servers": [
       {
-        "url": "http://localhost:8080",
+        "url": "https://oxblog-api.vercel.app",
         "description": "Hosted server"
       }
     ],
