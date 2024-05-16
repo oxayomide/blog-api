@@ -2,7 +2,6 @@ const express = require('express');
 const connectDB = require('./config/db');
 const articleRoutes = require('./src/routes/articleRoutes');
 const authRoutes = require('./src/routes/authRoutes');
-const authMiddleware = require('./src/middleware/authMiddleware');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
@@ -22,7 +21,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 // Routes
-app.use('/api/articles', authMiddleware, articleRoutes);
+app.use('/api/articles', articleRoutes);
 app.use('/api/auth', authRoutes)
 
 // Start server
