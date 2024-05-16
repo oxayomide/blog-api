@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-      "title": "Blog API",
+      "title": "Ox Blog API",
       "version": "1.0.0",
       "description": "API documentation for the Blog API. Built by Ayomide Aluko"
     },
