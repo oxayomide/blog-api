@@ -20,7 +20,7 @@ require('dotenv').config();
 
 // Use Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
+app.use(express.static(swaggerDocument))
 
 
 // Routes
