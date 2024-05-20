@@ -2,8 +2,9 @@ const express = require('express');
 const connectDB = require('./config/db');
 const articleRoutes = require('./src/routes/articleRoutes');
 const authRoutes = require('./src/routes/authRoutes');
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
+const path = require('path');
+// const swaggerUi = require('swagger-ui-express');
+// const swaggerDocument = require('./swagger.json');
 
 
 const app = express();
@@ -17,9 +18,10 @@ connectDB();
 // Load environment variables
 require('dotenv').config();
 
+app.use('/api-docs', express.static(path.join(__dirname, 'public')));
 
 // Use Swagger UI
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 // Routes
